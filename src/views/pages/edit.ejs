@@ -1,0 +1,35 @@
+<%- include('../partials/head.ejs'); -%>
+
+    <%- include('../partials/navbar.ejs'); -%>
+
+    <div class="container my-3">
+        <h3 class="display-4 text-center mb-3">Editar Produto</h3>
+
+        <div class="row">
+            <div class="col-lg-6 border border-primary border-2 rounded p-4 mx-auto">
+                <form action="/edit" method="post">
+                  <input type="hidden" name="id" value="<%= product.id %>">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nome:</label>
+                        <input type="text" class="form-control" id="name" name="name" value="<%= product.name %>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Preço:</label>
+                        <input type="text" class="form-control" id="price" name="price" value="<%= product.price %>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="quantity" class="form-label">Quantidade:</label>
+                        <input type="text" class="form-control" id="quantity" name="quantity" value="<%= product.quantity %>">
+                    </div>
+                    <button class="btn btn-warning text-white" type="submit">
+                        Editar
+                        <span class="ms-1">
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<%- include('../partials/footer.ejs'); -%>
