@@ -2,8 +2,6 @@ import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import router from './routes/routes.js';
-import session from 'express-session';
-import flash from 'connect-flash';
 
 const app = express(); 
 
@@ -24,19 +22,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //App usar rotas
 app.use(router);
-
-//Configurar flash messages
-app.use(session({
-    secret:'flashblog',
-    saveUninitialized: true,
-    resave: true
-}));
-  
-app.use(flash());
-
-app.use(function(req, res, next){
-    res.locals.message = req.flash();
-    next();
-});
 
 export default app;   
