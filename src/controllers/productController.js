@@ -15,13 +15,9 @@ const create = async (req, res) => {
             quantity: req.body.quantity
         }
     
-        const response = {
-            data: await Product.create(product),
-            message: "Produto cadastrado com sucesso" 
-        }
-        console.log("RESPONSE ===> ", response.data);
-        console.log("MENSAGEM ===> ", response.message)
-        res.redirect('/', { response });
+        await Product.create(product);
+    
+        res.redirect('/');
 
     } catch (error) {
         console.log(chalk.bgRedBright.black(`Aconteceu um erro: ${error}`));
