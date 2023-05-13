@@ -2,6 +2,7 @@ const dotev = require('dotenv');
 const chalk = require('chalk');
 const app = require("./app.js");
 const conn = require('./db/conn.js');
+const Product = require('./models/Product.js');
 
 dotev.config();
 
