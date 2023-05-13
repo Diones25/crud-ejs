@@ -1,7 +1,7 @@
-import dotev from 'dotenv';
-import chalk from 'chalk';
-import app from "./app.js";
-import conn from './db/conn.js'
+const dotev = require('dotenv');
+const chalk = require('chalk');
+const app = require("./app.js");
+const conn = require('./db/conn.js');
 
 dotev.config();
 

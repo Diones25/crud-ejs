@@ -1,5 +1,5 @@
-import Product from "../models/Product.js";
-import chalk from "chalk";
+const Product = require("../models/Product.js");
+const chalk = require("chalk");
 
 const homeRender = (req, res) => {
     res.render('pages/home')
@@ -16,8 +16,12 @@ const create = async (req, res) => {
         }
     
         await Product.create(product);
-    
-        res.redirect('/');
+
+        req.flash('message', 'Produto criado com sucesso!');
+        
+        req.session.save(() => {
+            res.redirect('/');
+        });        
 
     } catch (error) {
         console.log(chalk.bgRedBright.black(`Aconteceu um erro: ${error}`));
@@ -67,7 +71,11 @@ const edit = async (req, res) => {
             }
         });
 
-        res.redirect('/list');
+        req.flash('message', 'Produto editado com sucesso!');
+
+        req.session.save(() => {
+            res.redirect('/list');
+        });
 
     } catch (error) {
         console.log(chalk.bgRedBright.black(`Aconteceu um erro: ${error}`));
@@ -86,14 +94,18 @@ const remove = async (req, res) => {
             }
         });
 
-        res.redirect('/list');
+        req.flash('message', 'Produto removido com sucesso!');
+
+        req.session.save(() => {
+            res.redirect('/list');
+        });           
         
     } catch (error) {
         console.log(chalk.bgRedBright.black(`Aconteceu um erro: ${error}`));
     }
 }
 
-export default {
+module.exports = {
     homeRender,
     listRender,
     create,

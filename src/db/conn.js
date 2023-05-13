@@ -1,6 +1,6 @@
-import { Sequelize } from 'sequelize';
-import chalk from 'chalk';
-import dotenv from 'dotenv';
+const { Sequelize } = require('sequelize');
+const chalk = require('chalk');
+const dotenv = require('dotenv');
 
 dotenv.config();
 
@@ -18,4 +18,4 @@ try {
     console.log(chalk.bgRedBright.black(`Não foi possível conectar: ${error}`));
 }
 
-export default sequelize;
+module.exports = sequelize;

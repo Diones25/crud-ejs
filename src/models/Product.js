@@ -1,5 +1,5 @@
-import { DataTypes } from 'sequelize';
-import db from '../db/conn.js';
+const { DataTypes } = require('sequelize');
+const db = require('../db/conn.js');
 
 const Product = db.define('Product', {
     name: {
@@ -20,4 +20,4 @@ const Product = db.define('Product', {
 }
 );
 
-export default Product;
+module.exports = Product;
