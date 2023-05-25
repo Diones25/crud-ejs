@@ -1,11 +1,8 @@
 const express = require('express');
 const path = require('path');
-const { fileURLToPath } = require('url');
 const router = require('./routes/routes.js');
 const session = require('express-session');
-const FileStore = require('session-file-store')(session);
 const flash = require('express-flash');
-const os = require('os');
 
 const app = express(); 
 
